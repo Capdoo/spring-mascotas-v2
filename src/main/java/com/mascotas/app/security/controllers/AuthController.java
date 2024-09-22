@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mascotas.app.security.dto.JwtDTO;
+import com.mascotas.app.security.dto.JwtDto;
 import com.mascotas.app.security.dto.LoginUserDTO;
 import com.mascotas.app.security.dto.NewUserDTO;
 import com.mascotas.app.security.jwt.JwtProvider;
@@ -65,7 +65,7 @@ public class AuthController {
 	}
 
 	@PostMapping("/refresh")
-	public ResponseEntity<Object> refreshToken(@RequestBody JwtDTO jwtDTO) throws ParseException {
+	public ResponseEntity<Object> refreshToken(@RequestBody JwtDto jwtDTO) throws ParseException {
 		return securityResource.refreshToken(jwtDTO);
 	}
 }

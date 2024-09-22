@@ -19,7 +19,7 @@ public class SpringMascotasBackendApplication {
 	public CorsFilter corsFilter() {
 		CorsConfiguration corsConfiguration = new CorsConfiguration();
 		corsConfiguration.setAllowCredentials(true);
-		corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:4200","http://localhost:4100","https://cosmic-sprinkles-09ae4e.netlify.app"));
+		corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:4200","http://localhost:4100","https://cosmic-sprinkles-09ae4e.netlify.app","https://mascotas.rafaelnontol.com"));
 //		corsConfiguration.setAllowedOrigins(Arrays.asList("https://capdoo.github.io"));
 		corsConfiguration.setAllowedHeaders(Arrays.asList("Origin", "Access-Control-Allow-Origin", "Content-Type",
 				"Accept", "Authorization", "Origin, Accept", "X-Requested-With",

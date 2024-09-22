@@ -2,7 +2,7 @@ package com.mascotas.app.security.resource;
 
 import com.mascotas.app.dto.MessageDTO;
 import com.mascotas.app.files.FileUploadService;
-import com.mascotas.app.security.dto.JwtDTO;
+import com.mascotas.app.security.dto.JwtDto;
 import com.mascotas.app.security.dto.NewUserDTO;
 import com.mascotas.app.security.dto.UserDTO;
 import com.mascotas.app.security.jwt.JwtProvider;
@@ -54,7 +54,7 @@ public class SecurityResource {
             Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
             SecurityContextHolder.getContext().setAuthentication(authentication);
             String jwt = jwtProvider.generateToken(authentication);
-            JwtDTO jwtDto = new JwtDTO(jwt);
+            JwtDto jwtDto = new JwtDto(jwt);
             return ResponseEntity.status(HttpStatus.OK).body(jwtDto);
 
         } catch (Exception e) {
@@ -62,10 +62,10 @@ public class SecurityResource {
         }
     }
 
-    public ResponseEntity<Object> refreshToken(JwtDTO jwtDTO) {
+    public ResponseEntity<Object> refreshToken(JwtDto jwtDTO) {
         try {
             String token = jwtProvider.refreshToken(jwtDTO);
-            JwtDTO jwt = new JwtDTO(token);
+            JwtDto jwt = new JwtDto(token);
             return new ResponseEntity<Object>(jwt, HttpStatus.OK);
 
         }catch (Exception e){

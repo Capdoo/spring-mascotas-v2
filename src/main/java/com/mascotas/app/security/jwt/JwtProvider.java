@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.mascotas.app.security.dto.JwtDTO;
+import com.mascotas.app.security.dto.JwtDto;
 import com.nimbusds.jwt.JWT;
 import com.nimbusds.jwt.JWTClaimsSet;
 import com.nimbusds.jwt.JWTParser;
@@ -83,7 +83,7 @@ public class JwtProvider {
 		return false;
 	}
 
-	public String refreshToken(JwtDTO jwtDTO) throws ParseException {
+	public String refreshToken(JwtDto jwtDTO) throws ParseException {
 		JWT jwt = JWTParser.parse(jwtDTO.getToken());
 		JWTClaimsSet claims = jwt.getJWTClaimsSet();
 		String nombreUsuario = claims.getSubject();
